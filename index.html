@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#183d3a" />
+    <title>Dino Sudoku</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="start-screen" class="start-screen" aria-label="Start Dino Sudoku">
+        <p class="eyebrow">MUSEUM OF PREHISTORIC WONDERS</p>
+        <h1>Dino <span>Sudoku</span><small>BETA</small></h1>
+        <p class="start-copy">Choose an excavation level to begin restoring the museum collection.</p>
+        <div class="start-levels">
+          <button type="button" data-start-difficulty="easy"><strong>Easy</strong><span>42 clues · A gentle dig</span></button>
+          <button type="button" data-start-difficulty="medium"><strong>Medium</strong><span>32 clues · Field research</span></button>
+          <button type="button" data-start-difficulty="hard"><strong>Hard</strong><span>25 clues · Curator challenge</span></button>
+        </div>
+        <div class="jurassic-details" aria-hidden="true">
+          <span class="fern">🌿</span><span class="sauropod">🦕</span><span class="trex">🦖</span><span class="fern">🌿</span>
+        </div>
+      </section>
+
+      <div id="game-screen" hidden>
+      <header class="masthead">
+        <p class="eyebrow">MUSEUM OF PREHISTORIC WONDERS</p>
+        <h1>Dino <span>Sudoku</span><small>BETA</small></h1>
+        <p class="tagline">Restore the missing specimens in this dig site.</p>
+      </header>
+
+      <section class="game-layout" aria-label="Dino Sudoku game">
+        <aside class="museum-card" aria-label="Dig site details">
+          <div class="badge">CURATOR<br /><span>9 × 9</span></div>
+          <h2>Fern Hollow</h2>
+          <p>Every row, column, and 3 × 3 dig site needs one of each specimen.</p>
+          <div class="difficulty" role="group" aria-label="Choose excavation difficulty">
+            <p>Excavation level</p>
+            <div class="difficulty-options">
+              <button type="button" data-difficulty="easy">Easy</button>
+              <button type="button" data-difficulty="medium">Medium</button>
+              <button type="button" data-difficulty="hard">Hard</button>
+            </div>
+          </div>
+          <dl class="stats">
+            <div><dt>Time</dt><dd id="timer">00:00</dd></div>
+            <div><dt>Finds</dt><dd id="progress">0 / 81</dd></div>
+            <div><dt>Hints</dt><dd id="hints">5</dd></div>
+          </dl>
+        </aside>
+
+        <section class="board-area">
+          <p id="status" class="status" aria-live="polite">Choose a specimen, then place it in the grid.</p>
+          <div id="board" class="board" role="grid" aria-label="Nine by nine Dino Sudoku board"></div>
+          <div id="palette" class="palette" aria-label="Choose a fossil specimen"></div>
+          <div class="controls">
+            <button id="hint-button" class="secondary" type="button">Reveal a hint</button>
+            <button id="reset-button" class="ghost" type="button">Reset dig</button>
+            <button id="new-button" class="primary" type="button">New excavation</button>
+          </div>
+        </section>
+      </section>
+      </div>
+    </main>
+
+    <dialog id="complete-dialog">
+      <div class="complete-mark">✦</div>
+      <p class="eyebrow">EXCAVATION COMPLETE</p>
+      <h2>Museum piece recovered!</h2>
+      <p id="complete-copy"></p>
+      <button id="play-again-button" class="primary" type="button">Start another dig</button>
+    </dialog>
+
+    <script src="game.js"></script>
+  </body>
+</html>
